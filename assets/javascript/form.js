@@ -1,3 +1,5 @@
+import { CountUp } from './node_modules/countup.js/dist/countUp.min.js';
+
 const validateForm = {
     
     init: function() {
@@ -51,7 +53,7 @@ const validateForm = {
 
     resetErrorsAndResults: function() {
         document.querySelectorAll('.date-error').forEach((errorMessage) => errorMessage.remove());
-        document.querySelectorAll('.result').forEach((resultData) => resultData.textCOntent = '--');
+        document.querySelectorAll('.result').forEach((resultData) => resultData.textContent = '--');
     },
 
     renderErrors: function(errors) {
@@ -84,10 +86,12 @@ const validateForm = {
     calculateAge: function(date, currentDate) {
         const interval = new Date(currentDate.getTime() - date.getTime()); //interval in milliseconds
 
-        document.getElementById('result-years').textContent = interval.getUTCFullYear() -1970;
-        document.getElementById('result-months').textContent = interval.getUTCMonth();
-        document.getElementById('result-days').textContent = interval.getUTCDate() - 1;
-
+        let counterYears = new CountUp(document.getElementById('result-years'), interval.getUTCFullYear() -1970);
+        counterYears.start();
+        let counterMonths = new CountUp(document.getElementById('result-months'), interval.getUTCMonth());
+        counterMonths.start();
+        let counterDays = new CountUp(document.getElementById('result-days'), interval.getUTCDate() - 1);
+        counterDays.start();
     }
 
 }
