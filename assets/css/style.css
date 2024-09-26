@@ -85,7 +85,7 @@ button:hover {
 li {
     margin: 1rem 0;
     font-style: italic;
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight:800;
 }
 
@@ -107,9 +107,19 @@ footer a {
     body {
         display: flex;
         justify-content: center;
+        margin-top: 5rem;
     }
 
     #root {
         max-width: calc(200%/3);
+        padding:3rem;
+    }
+
+    section {
+        max-width: 80%;
+    }
+
+    button {
+        order: 2;
     }
 }
